@@ -13,7 +13,7 @@ Welcome to rwar.fun! This project is a browser-based multiplayer game inspired b
 2. **Controls:** Use your cursor to move your character. You can switch this to WASD or arrow keys in the settings menu.
 3. **Progression:** Gather resources by running defeating several unique mobs. Upon defeat, mobs will have chances to drop different unique petals. Running over them will put them into your inventory. (A magnet will work too)
 4. **Crafting:** Collect five of a petal of the same rarity, to attempt to combine them into one petal of the next rarity. Keep in mind you can destroy 1-4 petals in this process!
-5. **
+5. **Squadding:** Create private squads to send codes to specific people, or find a public squad to play with and defeat dino's!
 
 ## Installation
 No installation is required for this browser-based game. Simply type in https://rwar.fun in your web browser and start playing!
