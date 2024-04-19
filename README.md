@@ -19,16 +19,16 @@ Welcome to $\color{brown}{\textsf{rwar.fun}}$! This project is a $\color{beige}{
 No installation is required for this browser-based game. Simply type in https://rwar.fun in your web browser and start playing!
 
 ## Contributing
-Contributions are welcome! If you have any ideas for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request.
+Contributions are welcome! If you have any ideas for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request. If you would like to join the dev-team, join the $\color{#5865F2}{\textsf{Discord}}$ and DM `kit2d2`.
 
 ## $\color{lightgreen}{\textsf{Donations}}$ 💸
-Donations are very useful. If you have any money you would like to donate, no matter how small, PayPal `azelifyofficial@gmail.com`. Everything is welcome!
+Donations are very useful. If you have any money you would like to donate, no matter how small, $\color{#0079C1}{\textsf{PayPal}}$ `azelifyofficial@gmail.com`. Everything is welcome!
 
 ## License
 This project is licensed under the [AGPL License](LICENSE).
 
-## $\color{blue}{\textsf{Discord}}$
-https://discord.gg/rwar 
+# $\color{#5865F2}{\textsf{Discord}}$
+# **https://discord.gg/rwar**
 Current member count: `381 People` (5 Bots)
 
 ## Main-Developers
@@ -39,6 +39,6 @@ Current member count: `381 People` (5 Bots)
 
 # $\color{BurntOrange}{\textsf{Honorable Mentions}}$
 
-- ## $\color{green}{\textsf{Maxnest0x0 | Older Developer}}$
-- ## $\color{gray}{\textsf{Paul Johnson (sdtint) | Originial Co-Creator}}$
-- ## $\color{red}{\textsf{Bismuth | Originial Co-Creator}}$
+- ## $\color{#3EB489}{\textsf{Maxnest0x0 | Older Developer}}$
+- ## $\color{#808080}{\textsf{Paul Johnson (sdtint) | Originial Co-Creator}}$
+- ## $\color{#FF0000}{\textsf{Bismuth | Originial Co-Creator}}$
