@@ -1,6 +1,6 @@
 # **$\color{beige}{\textsf{rwar.fun}}$**
 
-Welcome to # $\color{brown}{\textsf{rwar.fun}}$! This project is a $\color{beige}{\textsf{Browser-based}}$ multiplayer game inspired by the popular game $\color{green}{\textsf{florr.io}}$, with a twist. Navigate through a vibrant and challenging map, collect different petals with unique abilities, and engage in intense battles with ancient dinosaurs, all while trying to survive to become the ultimate champion.
+Welcome to $\color{brown}{\textsf{rwar.fun}}$! This project is a $\color{beige}{\textsf{Browser-based}}$ multiplayer game inspired by the popular game $\color{green}{\textsf{florr.io}}$, with a twist. Navigate through a vibrant and challenging map, collect different petals with unique abilities, and engage in intense battles with ancient dinosaurs, all while trying to survive to become the ultimate champion.
 
 ## Features
 - **$\color{beige}{\textsf{Multiplayer-Experience:}}$** Engage in real-time battles and team against the Dinosaurs with players from around the world. (PvP Coming Soon!)
