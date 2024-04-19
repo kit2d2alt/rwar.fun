@@ -33,6 +33,6 @@ Current member count: `381 People` (5 Bots)
 
 ## Co-Developers
 
-- <font color="red">[@Kit2d2](https://github.com/Kit2d2)</font>
-- <font color="red">[@JBX2060](https://github.com/JBX2060)</font>
-- <font color="red">[@TheExecutionist](https://github.com/TheExecutionist)</font>
+- <span style="color:red;">Kit2d2</span> ([@Kit2d2](https://github.com/Kit2d2))
+- <span style="color:red;">JBX2060</span> ([@JBX2060](https://github.com/JBX2060))
+- <span style="color:red;">TheExecutionist</span> ([@TheExecutionist](https://github.com/TheExecutionist))
