@@ -33,6 +33,6 @@ Current member count: `381 People` (5 Bots)
 
 ## Co-Developers
 
-- $\color{red}{\textsf{([kit2d2]https://github.com/kit2d2alt))}}$
+- $\textsf{{\color[rgb]{0.0, 0.0, 1.0}k}{\color[rgb]{0.1, 0.0, 0.9}i}{\color[rgb]{0.2, 0.0, 0.8}t}{\color[rgb]{0.4, 0.0, 0.6}2}{\color[rgb]{0.5, 0.0, 0.5}d}{\color[rgb]{0.6, 0.0, 0.4}2}{\color[rgb]{0.7, 0.0, 0.3}a}{\color[rgb]{0.8, 0.0, 0.2}l}{\color[rgb]{0.9, 0.0, 0.1}t}{\color[rgb]{1.0, 0.0, 0.0}(Founder)}}$
 - <span style="color:red;">JBX2060</span> ([@JBX2060](https://github.com/JBX2060))
 - <span style="color:red;">TheExecutionist</span> ([@TheExecutionist](https://github.com/TheExecutionist))
