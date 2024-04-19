@@ -3,11 +3,10 @@
 Welcome to rwar.fun! This project is a browser-based multiplayer game inspired by the popular game florr.io, with a twist reminiscent of the classic dino game. Navigate through a vibrant and challenging arena, collect resources, and engage in intense battles with other players, all while trying to survive and become the ultimate champion.
 
 ## Features
-- **Multiplayer Experience:** Engage in real-time battles with players from around the world.
-- **Resource Collection:** Gather resources scattered throughout the arena to enhance your abilities and strengthen your character.
-- **Obstacle Avoidance:** Navigate through dynamic obstacles and challenges to stay alive.
+- **Multiplayer Experience:** Engage in real-time battles and team against the Dinosaurs with players from around the world. (PvP Coming Soon!)
+- **Petal Collection:** Defeating mobs will drop petals which can be collected by your character.
+- **Animal Avoidance:** Navigate through tough mobs while playing.
 - **Progressive Gameplay:** Unlock new features and abilities as you level up and progress through the game.
-- **Customization Options:** Personalize your character with various skins and upgrades.
 
 ## How to Play
 1. **Access the Game:** Simply go to https://rwar.fun in any browser. (Mobile is currently broken)
@@ -30,4 +29,4 @@ This project is licensed under the [AGPL License](LICENSE).
 
 ## Discord
 https://discord.gg/rwar 
-Current member count: 381 People (5 Bots)
+Current member count: `381 People` (5 Bots)
