@@ -1,0 +1,773 @@
+var c;
+c ||= typeof Module != 'undefined' ? Module : {};
+var k = Object.assign({}, c), l = (a,d)=>{
+    throw d;
+}
+, p = "object" == typeof window, q = "function" == typeof importScripts, r = "object" == typeof process && "object" == typeof process.versions && "string" == typeof process.versions.node, t = "", u, v, w;
+if (r) {
+    var fs = require("fs")
+      , x = require("path");
+    t = q ? x.dirname(t) + "/" : __dirname + "/";
+    u = (a,d)=>{
+        a = y(a) ? new URL(a) : x.normalize(a);
+        return fs.readFileSync(a, d ? void 0 : "utf8")
+    }
+    ;
+    w = a=>{
+        a = u(a, !0);
+        a.buffer || (a = new Uint8Array(a));
+        return a
+    }
+    ;
+    v = (a,d,b,f=!0)=>{
+        a = y(a) ? new URL(a) : x.normalize(a);
+        fs.readFile(a, f ? void 0 : "utf8", (g,h)=>{
+            g ? b(g) : d(f ? h.buffer : h)
+        }
+        )
+    }
+    ;
+    process.argv.slice(2);
+    "undefined" != typeof module && (module.exports = c);
+    process.on("uncaughtException", a=>{
+        if (!("unwind" === a || a instanceof z || a.context instanceof z))
+            throw a;
+    }
+    );
+    l = (a,d)=>{
+        process.exitCode = a;
+        throw d;
+    }
+} else if (p || q)
+    q ? t = self.location.href : "undefined" != typeof document && document.currentScript && (t = document.currentScript.src),
+    t = t.startsWith("blob:") ? "" : t.substr(0, t.replace(/[?#].*/, "").lastIndexOf("/") + 1),
+    u = a=>{
+        var d = new XMLHttpRequest;
+        d.open("GET", a, !1);
+        d.send(null);
+        return d.responseText
+    }
+    ,
+    q && (w = a=>{
+        var d = new XMLHttpRequest;
+        d.open("GET", a, !1);
+        d.responseType = "arraybuffer";
+        d.send(null);
+        return new Uint8Array(d.response)
+    }
+    ),
+    v = (a,d,b)=>{
+        var f = new XMLHttpRequest;
+        f.open("GET", a, !0);
+        f.responseType = "arraybuffer";
+        f.onload = ()=>{
+            200 == f.status || 0 == f.status && f.response ? d(f.response) : b()
+        }
+        ;
+        f.onerror = b;
+        f.send(null)
+    }
+    ;
+var aa = c.print || console.log.bind(console)
+  , A = c.printErr || console.error.bind(console);
+Object.assign(c, k);
+k = null;
+c.quit && (l = c.quit);
+var B;
+c.wasmBinary && (B = c.wasmBinary);
+var F, G = !1, H, I, ba, J, ca, da, ea = [], fa = [], ha = [], ia = [];
+function ja() {
+    var a = c.preRun.shift();
+    ea.unshift(a)
+}
+var K = 0
+  , L = null
+  , M = null;
+function ka(a) {
+    c.onAbort?.(a);
+    a = "Aborted(" + a + ")";
+    A(a);
+    G = !0;
+    throw new WebAssembly.RuntimeError(a + ". Build with -sASSERTIONS for more info.");
+}
+var la = a=>a.startsWith("data:application/octet-stream;base64,"), y = a=>a.startsWith("file://"), N;
+N = "rrolf-client.wasm";
+if (!la(N)) {
+    var ma = N;
+    N = c.locateFile ? c.locateFile(ma, t) : t + ma
+}
+function na(a) {
+    if (a == N && B)
+        return new Uint8Array(B);
+    if (w)
+        return w(a);
+    throw "both async and sync fetching of the wasm failed";
+}
+function oa(a) {
+    if (!B && (p || q)) {
+        if ("function" == typeof fetch && !y(a))
+            return fetch(a, {
+                credentials: "same-origin"
+            }).then(d=>{
+                if (!d.ok)
+                    throw `failed to load wasm binary file at '${a}'`;
+                return d.arrayBuffer()
+            }
+            ).catch(()=>na(a));
+        if (v)
+            return new Promise((d,b)=>{
+                v(a, f=>d(new Uint8Array(f)), b)
+            }
+            )
+    }
+    return Promise.resolve().then(()=>na(a))
+}
+function pa(a, d, b) {
+    return oa(a).then(f=>WebAssembly.instantiate(f, d)).then(b, f=>{
+        A(`failed to asynchronously prepare wasm: ${f}`);
+        ka(f)
+    }
+    )
+}
+function qa(a, d) {
+    var b = N;
+    B || "function" != typeof WebAssembly.instantiateStreaming || la(b) || y(b) || r || "function" != typeof fetch ? pa(b, a, d) : fetch(b, {
+        credentials: "same-origin"
+    }).then(f=>WebAssembly.instantiateStreaming(f, a).then(d, function(g) {
+        A(`wasm streaming compile failed: ${g}`);
+        A("falling back to ArrayBuffer instantiation");
+        return pa(b, a, d)
+    }))
+}
+var va = {
+    20184: (a,d)=>{
+        a = a ? O(H, a) : "";
+        const b = document.createElement("input");
+        b.id = a;
+        b.type = "text";
+        b.maxLength = d;
+        b.style.position = "absolute";
+        b.style["font-family"] = "Ubuntu";
+        b.style.display = "none";
+        b.style["border-width"] = "0px";
+        b.style.background = "transparent";
+        b.style.border = "none";
+        b.style.outline = "none";
+        b.style["padding-left"] = "2px";
+        document.body.appendChild(b)
+    }
+    ,
+    20624: a=>{
+        a = a ? O(H, a) : "";
+        document.getElementById(a).style.display = "block"
+    }
+    ,
+    20733: a=>{
+        a = a ? O(H, a) : "";
+        a = document.getElementById(a);
+        a.style.display = "none";
+        a.style.width = a.style.height = "0px"
+    }
+    ,
+    20887: (a,d,b,f,g)=>{
+        a = a ? O(H, a) : "";
+        a = document.getElementById(a);
+        a.style.left = (d - f / 2) / devicePixelRatio + "px";
+        a.style.top = (b - g / 2) / devicePixelRatio + "px";
+        a.style.width = f / devicePixelRatio + "px";
+        a.style.height = g / devicePixelRatio + "px";
+        a.style["font-size"] = g / devicePixelRatio * .8 + "px"
+    }
+    ,
+    21244: (a,d,b)=>{
+        a = a ? O(H, a) : "";
+        a = document.getElementById(a);
+        a = (new TextEncoder).encode(a.value);
+        b = b > a.length ? a.length : b;
+        a = a.slice(0, b);
+        H.set(a, d);
+        H[d + b] = 0
+    }
+    ,
+    21486: (a,d)=>{
+        a = a ? O(H, a) : "";
+        document.getElementById(a).value = d ? O(H, d) : ""
+    }
+    ,
+    21596: a=>{
+        a = a ? O(H, a) : "";
+        document.getElementById(a).focus()
+    }
+    ,
+    21689: a=>{
+        a = a ? O(H, a) : "";
+        document.getElementById(a).blur()
+    }
+    ,
+    21781: a=>{
+        a = a ? O(H, a) : "";
+        a = document.getElementById(a);
+        return +(document.activeElement === a)
+    }
+    ,
+    21903: a=>{
+        let d = document.createElement("textarea");
+        d.style.position = "fixed";
+        d.style.top = 0;
+        d.style.left = 0;
+        d.style.width = "2em";
+        d.style.height = "2em";
+        d.style.margin = 0;
+        d.style.padding = 0;
+        d.style.border = "none";
+        d.style.outline = "none";
+        d.style.boxShadow = "none";
+        d.style.background = "transparent";
+        d.value = a ? O(H, a) : "";
+        document.body.appendChild(d);
+        d.focus();
+        d.select();
+        try {
+            document.execCommand("copy") || console.log("execCommand copy failed")
+        } catch (b) {}
+        document.body.removeChild(d)
+    }
+    ,
+    22473: ()=>+/iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
+    22544: a=>{
+        try {
+            window.open(a ? O(H, a) : "", "_blank").focus()
+        } catch (d) {}
+    }
+    ,
+    22619: (a,d,b)=>{
+        a = a ? O(H, a) : "";
+        d = (new TextDecoder).decode(H.subarray(d, d + b - 1));
+        window.localStorage[a] = d
+    }
+    ,
+    22767: (a,d)=>{
+        a = a ? O(H, a) : "";
+        a = window.localStorage[a];
+        if (!a)
+            return 0;
+        H.set((new TextEncoder).encode(a), d);
+        return a.length
+    }
+    ,
+    22937: a=>{
+        document.getElementById(a ? O(H, a) : "").value = prompt()
+    }
+    ,
+    23026: a=>{
+        function d(b) {
+            null == window.start && (window.start = b + 1);
+            const f = Math.min(.5, (b - window.start) / 1E3);
+            window.start = b;
+            c.canvas.width = innerWidth * devicePixelRatio;
+            c.canvas.height = innerHeight * devicePixelRatio;
+            ra(a, f, c.canvas.width, c.canvas.height, devicePixelRatio);
+            requestAnimationFrame(d)
+        }
+        c.canvas = document.createElement("canvas");
+        c.canvas.id = "canvas";
+        c.canvas.oncontextmenu = function() {
+            return !1
+        }
+        ;
+        window.onbeforeunload = function() {
+            return "Are you sure?"
+        }
+        ;
+        document.body.appendChild(c.canvas);
+        c.v = [c.canvas.getContext("2d")];
+        c.A = Array(256).fill(0).map(function(b, f) {
+            return f
+        });
+        window.onkeydown = function(b) {
+            P(a, 1, b.which, b.key ? (!b.ctrlKey && !b.metaKey && 1 == b.key.length) * b.key.charCodeAt() : 0)
+        }
+        ;
+        window.onkeyup = function(b) {
+            P(a, 0, b.which, b.key ? (!b.ctrlKey && !b.metaKey && 1 == b.key.length) * b.key.charCodeAt() : 0)
+        }
+        ;
+        window.addEventListener("mousedown", async function(b) {
+            Q(a, b.clientX * devicePixelRatio, b.clientY * devicePixelRatio, 1, +!!b.button)
+        });
+        window.addEventListener("mousemove", async function(b) {
+            Q(a, b.clientX * devicePixelRatio, b.clientY * devicePixelRatio, 2, +!!b.button)
+        });
+        window.addEventListener("mouseup", async function(b) {
+            Q(a, b.clientX * devicePixelRatio, b.clientY * devicePixelRatio, 0, +!!b.button)
+        });
+        window.addEventListener("touchstart", function(b) {
+            b.preventDefault();
+            b.stopPropagation();
+            if (b.changedTouches.length) {
+                var f = b.changedTouches[0];
+                Q(a, f.clientX * devicePixelRatio, f.clientY * devicePixelRatio, 1, 0);
+                for (const g of b.changedTouches)
+                    R(a, g.clientX * devicePixelRatio, g.clientY * devicePixelRatio, 1, g.identifier)
+            }
+        }, {
+            passive: !1
+        });
+        window.addEventListener("touchmove", function(b) {
+            b.preventDefault();
+            b.stopPropagation();
+            if (b.changedTouches.length) {
+                var f = b.changedTouches[0];
+                Q(a, f.clientX * devicePixelRatio, f.clientY * devicePixelRatio, 2, 0);
+                for (const g of b.changedTouches)
+                    R(a, g.clientX * devicePixelRatio, g.clientY * devicePixelRatio, 1, g.identifier)
+            }
+        }, {
+            passive: !1
+        });
+        window.addEventListener("touchend", function(b) {
+            b.preventDefault();
+            b.stopPropagation();
+            if (b.changedTouches.length) {
+                var f = b.changedTouches[0];
+                Q(a, f.clientX * devicePixelRatio, f.clientY * devicePixelRatio, 0, 0);
+                for (const g of b.changedTouches)
+                    R(a, g.clientX * devicePixelRatio, g.clientY * devicePixelRatio, 0, g.identifier)
+            }
+        }, {
+            passive: !1
+        });
+        window.addEventListener("wheel", async function({deltaY: b}) {
+            sa(a, b)
+        });
+        document.body.addEventListener("paste", async function(b) {
+            b = (new TextEncoder).encode(b.clipboardData.getData("text/plain"));
+            const f = S(b.length + 1);
+            H.set(b, f);
+            H[f + b.length] = 0;
+            ta(a, f)
+        });
+        c.B = function() {
+            if (c.A.length) {
+                const b = c.A.shift();
+                if (0 == b)
+                    return 0;
+                c.v[b] = (new OffscreenCanvas(1,1)).getContext("2d");
+                return b
+            }
+            throw Error("Out of Contexts: Can be fixed by allowing more contexts");
+        }
+        ;
+        c.C = function(b) {
+            if (0 == b)
+                throw Error("Tried to delete the main context");
+            c.v[b] = null;
+            c.A.push(b)
+        }
+        ;
+        requestAnimationFrame(d)
+    }
+    ,
+    26912: (a,d,b)=>{
+        let f = d ? O(H, d) : "";
+        c.socket && 2 > c.socket.readyState && c.socket.close();
+        (function() {
+            let g = c.socket = new WebSocket(f);
+            g.binaryType = "arraybuffer";
+            g.onopen = function() {
+                T(a, 0, 0, 0)
+            }
+            ;
+            g.onclose = function(h) {
+                T(a, 1, 0, h.code)
+            }
+            ;
+            g.onmessage = function(h) {
+                H.set(new Uint8Array(h.data), b);
+                T(a, 2, b, (new Uint8Array(h.data)).length)
+            }
+        }
+        )()
+    }
+    ,
+    27452: (a,d)=>{
+        c.socket.send(H.subarray(a, a + d))
+    }
+    ,
+    27506: (a,d)=>{
+        c.socket.send(H.subarray(a, a + d))
+    }
+    ,
+    27560: (a,d,b)=>{
+        a = a ? O(H, a) : "";
+        let f = d ? O(H, d) : "", g = b ? O(H, b) : "", h;
+        fetch("https://identity.api.rivet.gg/v1/game-links", {
+            method: "POST",
+            body: "{}",
+            headers: {
+                Authorization: "Bearer " + a
+            }
+        }).then(e=>e.json()).then(e=>{
+            function m(C) {
+                C.then(n=>n.json()).then(n=>{
+                    if ("incomplete" === n.status) {
+                        console.log("<not linked yet, checking again>");
+                        let D = fetch("https://identity.api.rivet.gg/v1/game-links?identity_link_token=" + e.identity_link_token + "&watch_index=" + n.watch.index);
+                        m(D)
+                    } else
+                        "cancelled" === n.status ? console.log("<cancelled linking>") : "complete" === n.status && fetch(f + "user_get_password/" + n.new_identity.identity_token).then(D=>D.text()).then(D=>{
+                            fetch(f + "account_link/" + n.current_identity.identity_id + "/" + g + "/" + n.new_identity.identity.identity_id + "/" + D).then(U=>U.text()).then(U=>{
+                                "success" !== U ? alert("Linking failed: please try again\nattempted to link " + n.current_identity.identity_id + " and " + n.new_identity.identity.identity_id + "\nPlease screenshot this and send to devs") : (h.close(),
+                                window.localStorage.old_account_uuid = n.current_identity.identity_id,
+                                window.localStorage.DO_NOT_SHARE_old_rivet_account_token = window.localStorage.DO_NOT_SHARE_rivet_account_token,
+                                window.localStorage.DO_NOT_SHARE_rivet_account_token = n.new_identity.identity_token,
+                                location.reload(!1))
+                            }
+                            )
+                        }
+                        )
+                }
+                )
+            }
+            h = window.open(e.identity_link_url, "", "width=600,height=600");
+            let E = fetch("https://identity.api.rivet.gg/v1/game-links?identity_link_token=" + e.identity_link_token);
+            m(E)
+        }
+        )
+    }
+    ,
+    29371: a=>{
+        function d(b) {
+            const f = S(b.identity_token.length + 1)
+              , g = S(b.identity.avatar_url.length + 1)
+              , h = S(b.identity.display_name.length + 1)
+              , e = S(b.identity.identity_id.length + 1)
+              , m = S(6);
+            H[f + b.identity_token.length] = 0;
+            H[g + b.identity.avatar_url.length] = 0;
+            H[h + b.identity.display_name.length] = 0;
+            H[e + b.identity.identity_id.length] = 0;
+            H[m + 5] = 0;
+            H.set((new TextEncoder).encode(b.identity_token), f);
+            H.set((new TextEncoder).encode(b.identity.avatar_url), g);
+            H.set((new TextEncoder).encode(b.identity.display_name), h);
+            H.set((new TextEncoder).encode(b.identity.identity_id), e);
+            H.set((new TextEncoder).encode("#" + b.identity.account_number.toString().padStart(4, "0")), m);
+            ua(f, g, h, m, e, +b.identity.is_game_linked, a);
+            V(e);
+            V(f);
+            V(g);
+            V(h);
+            V(m)
+        }
+        (function() {
+            const b = {
+                identity_token: "token",
+                identity: {}
+            };
+            b.identity.avatar_url = "url";
+            b.identity.display_name = "name";
+            b.identity.identity_id = "";
+            b.identity.account_number = "1234";
+            b.identity.is_game_linked = !0;
+            window.localStorage.rivet_account_uuid && "b5f62776-ef1c-472d-8ccd-b329edee545b" !== window.localStorage.rivet_account_uuid ? b.identity.identity_id = window.localStorage.rivet_account_uuid : (b.identity.identity_id = function() {
+                return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, f=>(+f ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +f / 4).toString(16))
+            }(),
+            window.localStorage.rivet_account_uuid = b.identity.identity_id);
+            d(b)
+        }
+        )("DO_NOT_SHARE_rivet_account_token")
+    }
+    ,
+    31441: ()=>c.B(),
+    31469: (a,d,b)=>{
+        c.v[a].canvas.width = d;
+        c.v[a].canvas.height = b
+    }
+    ,
+    31544: a=>{
+        a = a ? O(H, a) : "";
+        c.v[0].font = "1px Ubuntu";
+        return c.v[0].measureText(a).width
+    }
+    ,
+    31664: (a,d,b)=>{
+        for (let g = 0; g < d; ++g) {
+            const h = I[a + 2 >> 1];
+            var f = I[a + 4 >> 1];
+            const e = ca.subarray(a + 8 >> 2, a + 32 >> 2)
+              , m = J[a + 32 >> 2];
+            switch (H[a]) {
+            case 0:
+                c.v[h].fillStyle = "rgba(" + e[0] + "," + e[1] + "," + e[2] + "," + e[3] + ")";
+                break;
+            case 1:
+                c.v[h].strokeStyle = "rgba(" + e[0] + "," + e[1] + "," + e[2] + "," + e[3] + ")";
+                break;
+            case 2:
+                c.v[h].lineWidth = e[0];
+                break;
+            case 3:
+                c.v[h].font = e[0] + "px Ubuntu";
+                break;
+            case 4:
+                c.v[h].globalAlpha = e[0];
+                break;
+            case 5:
+                0 == e[0] ? c.v[h].lineCap = "butt" : 1 == e[0] ? c.v[h].lineCap = "round" : 2 == e[0] && (c.v[h].lineCap = "square");
+                break;
+            case 6:
+                0 == e[0] ? c.v[h].lineJoin = "bevel" : 1 == e[0] ? c.v[h].lineJoin = "round" : 2 == e[0] && (c.v[h].lineJoin = "miter");
+                break;
+            case 7:
+                0 == e[0] ? c.v[h].textAlign = "left" : 1 == e[0] ? c.v[h].textAlign = "center" : 2 == e[0] && (c.v[h].textAlign = "right");
+                break;
+            case 8:
+                0 == e[0] ? c.v[h].textBaseline = "top" : 1 == e[0] ? c.v[h].textBaseline = "middle" : 2 == e[0] && (c.v[h].textBaseline = "bottom");
+                break;
+            case 9:
+                c.v[h].setTransform(e[0], e[1], e[3], e[4], e[2], e[5]);
+                break;
+            case 10:
+                c.v[h].save();
+                break;
+            case 11:
+                c.v[h].restore();
+                break;
+            case 12:
+                c.v[h].beginPath();
+                break;
+            case 13:
+                c.v[h].moveTo(e[0], e[1]);
+                break;
+            case 14:
+                c.v[h].lineTo(e[0], e[1]);
+                break;
+            case 15:
+                c.v[h].quadraticCurveTo(e[0], e[1], e[2], e[3]);
+                break;
+            case 16:
+                c.v[h].bezierCurveTo(e[0], e[1], e[2], e[3], e[4], e[5]);
+                break;
+            case 17:
+                c.v[h].arc(e[0], e[1], e[2], e[3], e[4], e[5]);
+                break;
+            case 18:
+                c.v[h].ellipse(e[0], e[1], e[2], e[3], 0, 6.283185307179586, 0);
+                break;
+            case 19:
+                c.v[h].rect(e[0], e[1], e[2], e[3]);
+                break;
+            case 20:
+                c.v[h].drawImage(c.v[f].canvas, e[0], e[1], e[2], e[3], e[4], e[5], e[2], e[3]);
+                break;
+            case 21:
+                c.v[h].fillRect(e[0], e[1], e[2], e[3]);
+                break;
+            case 22:
+                c.v[h].strokeRect(e[0], e[1], e[2], e[3]);
+                break;
+            case 23:
+                c.v[h].fill();
+                break;
+            case 24:
+                c.v[h].stroke();
+                break;
+            case 25:
+                c.v[h].clip();
+                break;
+            case 26:
+                c.v[h].clip("evenodd");
+                break;
+            case 27:
+                f = m ? O(H, m) : "";
+                c.v[h].fillText(f, e[0], e[1]);
+                V(m);
+                break;
+            case 28:
+                f = m ? O(H, m) : "",
+                c.v[h].strokeText(f, e[0], e[1]),
+                V(m)
+            }
+            a += b
+        }
+    }
+};
+function z(a) {
+    this.name = "ExitStatus";
+    this.message = `Program terminated with exit(${a})`;
+    this.status = a
+}
+var W = a=>{
+    for (; 0 < a.length; )
+        a.shift()(c)
+}
+  , wa = c.noExitRuntime || !0
+  , X = []
+  , xa = (a,d)=>{
+    X.length = 0;
+    for (var b; b = H[a++]; ) {
+        var f = 105 != b;
+        f &= 112 != b;
+        d += f && d % 8 ? 4 : 0;
+        X.push(112 == b ? J[d >> 2] : 105 == b ? ba[d >> 2] : da[d >> 3]);
+        d += f ? 8 : 4
+    }
+    return X
+}
+  , ya = [null, [], []]
+  , za = "undefined" != typeof TextDecoder ? new TextDecoder("utf8") : void 0
+  , O = (a,d)=>{
+    for (var b = d + NaN, f = d; a[f] && !(f >= b); )
+        ++f;
+    if (16 < f - d && a.buffer && za)
+        return za.decode(a.subarray(d, f));
+    for (b = ""; d < f; ) {
+        var g = a[d++];
+        if (g & 128) {
+            var h = a[d++] & 63;
+            if (192 == (g & 224))
+                b += String.fromCharCode((g & 31) << 6 | h);
+            else {
+                var e = a[d++] & 63;
+                g = 224 == (g & 240) ? (g & 15) << 12 | h << 6 | e : (g & 7) << 18 | h << 12 | e << 6 | a[d++] & 63;
+                65536 > g ? b += String.fromCharCode(g) : (g -= 65536,
+                b += String.fromCharCode(55296 | g >> 10, 56320 | g & 1023))
+            }
+        } else
+            b += String.fromCharCode(g)
+    }
+    return b
+}
+  , Aa = {
+    e: (a,d,b)=>H.copyWithin(a, d, d + b),
+    b: (a,d,b)=>{
+        d = xa(d, b);
+        return va[a](...d)
+    }
+    ,
+    a: (a,d,b)=>{
+        d = xa(d, b);
+        return va[a](...d)
+    }
+    ,
+    f: ()=>Date.now(),
+    c: ()=>{
+        ka("OOM")
+    }
+    ,
+    d: (a,d,b,f)=>{
+        for (var g = 0, h = 0; h < b; h++) {
+            var e = J[d >> 2]
+              , m = J[d + 4 >> 2];
+            d += 8;
+            for (var E = 0; E < m; E++) {
+                var C = H[e + E]
+                  , n = ya[a];
+                0 === C || 10 === C ? ((1 === a ? aa : A)(O(n, 0)),
+                n.length = 0) : n.push(C)
+            }
+            g += m
+        }
+        J[f >> 2] = g;
+        return 0
+    }
+}
+  , Y = function() {
+    function a(b) {
+        Y = b.exports;
+        F = Y.g;
+        b = F.buffer;
+        c.HEAP8 = new Int8Array(b);
+        c.HEAP16 = new Int16Array(b);
+        c.HEAPU8 = H = new Uint8Array(b);
+        c.HEAPU16 = I = new Uint16Array(b);
+        c.HEAP32 = ba = new Int32Array(b);
+        c.HEAPU32 = J = new Uint32Array(b);
+        c.HEAPF32 = ca = new Float32Array(b);
+        c.HEAPF64 = da = new Float64Array(b);
+        fa.unshift(Y.h);
+        K--;
+        c.monitorRunDependencies?.(K);
+        0 == K && (null !== L && (clearInterval(L),
+        L = null),
+        M && (b = M,
+        M = null,
+        b()));
+        return Y
+    }
+    var d = {
+        a: Aa
+    };
+    K++;
+    c.monitorRunDependencies?.(K);
+    if (c.instantiateWasm)
+        try {
+            return c.instantiateWasm(d, a)
+        } catch (b) {
+            return A(`Module.instantiateWasm callback failed with error: ${b}`),
+            !1
+        }
+    qa(d, function(b) {
+        a(b.instance)
+    });
+    return {}
+}()
+  , S = c._malloc = a=>(S = c._malloc = Y.i)(a)
+  , V = c._free = a=>(V = c._free = Y.j)(a);
+c._rr_api_on_get_password = (a,d)=>(c._rr_api_on_get_password = Y.k)(a, d);
+var ua = c._rr_rivet_on_log_in = (a,d,b,f,g,h,e)=>(ua = c._rr_rivet_on_log_in = Y.l)(a, d, b, f, g, h, e);
+c._rr_rivet_lobby_on_find = (a,d,b,f)=>(c._rr_rivet_lobby_on_find = Y.m)(a, d, b, f);
+var P = c._rr_key_event = (a,d,b,f)=>(P = c._rr_key_event = Y.n)(a, d, b, f), Q = c._rr_mouse_event = (a,d,b,f,g)=>(Q = c._rr_mouse_event = Y.o)(a, d, b, f, g), R = c._rr_touch_event = (a,d,b,f,g)=>(R = c._rr_touch_event = Y.p)(a, d, b, f, g), sa = c._rr_wheel_event = (a,d)=>(sa = c._rr_wheel_event = Y.q)(a, d), ta = c._rr_paste_event = (a,d)=>(ta = c._rr_paste_event = Y.r)(a, d), ra = c._rr_renderer_main_loop = (a,d,b,f,g)=>(ra = c._rr_renderer_main_loop = Y.s)(a, d, b, f, g), Ba = c._main = (a,d)=>(Ba = c._main = Y.t)(a, d), T = c._rr_on_socket_event_emscripten = (a,d,b,f,g)=>(T = c._rr_on_socket_event_emscripten = Y.u)(a, d, b, f, g), Z;
+M = function Ca() {
+    Z || Da();
+    Z || (M = Ca)
+}
+;
+function Da() {
+    function a() {
+        if (!Z && (Z = !0,
+        c.calledRun = !0,
+        !G)) {
+            W(fa);
+            W(ha);
+            if (c.onRuntimeInitialized)
+                c.onRuntimeInitialized();
+            if (Ea) {
+                var d = Ba;
+                try {
+                    var b = d(0, 0);
+                    wa || (c.onExit?.(b),
+                    G = !0);
+                    l(b, new z(b))
+                } catch (f) {
+                    f instanceof z || "unwind" == f || l(1, f)
+                }
+            }
+            if (c.postRun)
+                for ("function" == typeof c.postRun && (c.postRun = [c.postRun]); c.postRun.length; )
+                    d = c.postRun.shift(),
+                    ia.unshift(d);
+            W(ia)
+        }
+    }
+    if (!(0 < K)) {
+        if (c.preRun)
+            for ("function" == typeof c.preRun && (c.preRun = [c.preRun]); c.preRun.length; )
+                ja();
+        W(ea);
+        0 < K || (c.setStatus ? (c.setStatus("Running..."),
+        setTimeout(function() {
+            setTimeout(function() {
+                c.setStatus("")
+            }, 1);
+            a()
+        }, 1)) : a())
+    }
+}
+if (c.preInit)
+    for ("function" == typeof c.preInit && (c.preInit = [c.preInit]); 0 < c.preInit.length; )
+        c.preInit.pop()();
+var Ea = !0;
+c.noInitialRun && (Ea = !1);
+Da();
