@@ -39,6 +39,6 @@ Current member count: `381 People` (5 Bots)
 
 # $\color{BurntOrange}{\textsf{Honorable Mentions}}$
 
-- ## $\color{#3EB489}{\textsf{Maxnest (mn) | Older Developer}}$
+- ## $\color{#ffdd00}{\textsf{Max Nest (mn) | Older Developer}}$
 - ## $\color{#808080}{\textsf{Paul Johnson (.sdtint) | Originial Co-Creator}}$
 - ## $\color{#FF0000}{\textsf{Bismuth (bismuth) | Originial Co-Creator}}$
