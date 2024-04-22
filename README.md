@@ -37,6 +37,9 @@ Current member count: `381 People` (5 Bots)
 - # **$\color{Purple}{\textsf{JBX2060~}}$ | $\color{BurntOrange}{\textsf{Host/Leading Backend Developer}}$**
 - # **$\color{Red}{\textsf{TheExecutionist~}}$ | $\color{Teal}{\textsf{Frontend/Backend Developer}}$**
 
+## Trial Developers
+- # **$\color{pink}{\textsf{Pixey~}}$ | $\color{Teal}{\textsf{Frontend/Backend Developer}}$**
+
 # $\color{BurntOrange}{\textsf{Artists}}$
 ## $\color{White}{\textsf{NerdyAuk}}$
 
