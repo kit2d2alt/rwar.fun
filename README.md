@@ -47,8 +47,8 @@ Current member count: `381 People` (5 Bots)
 - ## $\color{#FF0000}{\textsf{Bismuth (bismuth) | Originial Co-Creator}}$
 
 # $\color{Red}{\textsf{femboys}}$
-thunder
-otane
-vented
-lof
+# thunder
+# otane
+# vented
+# lof
 
