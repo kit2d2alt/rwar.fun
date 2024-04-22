@@ -31,14 +31,24 @@ This project is licensed under the [AGPL License](LICENSE).
 # **https://discord.gg/rwar**
 Current member count: `381 People` (5 Bots)
 
-## Main-Developers
+## **$\color{lightblue}{\textsf{Main-Developers}}$
 
 - # **$\textsf{{\color[rgb]{0.0, 0.0, 1.0}k}{\color[rgb]{0.1, 0.0, 0.9}i}{\color[rgb]{0.2, 0.0, 0.8}t}{\color[rgb]{0.4, 0.0, 0.6}2}{\color[rgb]{0.5, 0.0, 0.5}d}{\color[rgb]{0.6, 0.0, 0.4}2}{\color[rgb]{0.7, 0.0, 0.3}a}{\color[rgb]{0.8, 0.0, 0.2}l}{\color[rgb]{0.9, 0.0, 0.1}t~} | {\color[rgb]{.4, 0.0, .6}(Founder/Leading Frontend Developer)}}$**
 - # **$\color{Purple}{\textsf{JBX2060~}}$ | $\color{BurntOrange}{\textsf{Host/Leading Backend Developer}}$**
 - # **$\color{Red}{\textsf{TheExecutionist~}}$ | $\color{Teal}{\textsf{Frontend/Backend Developer}}$**
+
+# $\color{BurntOrange}{\textsf{Artist}}$
+## $\color{White}{\textsf{NerdyAuk}}$
 
 # $\color{BurntOrange}{\textsf{Honorable Mentions}}$
 
 - ## $\color{#ffdd00}{\textsf{Max Nest (mn) | Older Developer}}$
 - ## $\color{#808080}{\textsf{Paul Johnson (.sdtint) | Originial Co-Creator}}$
 - ## $\color{#FF0000}{\textsf{Bismuth (bismuth) | Originial Co-Creator}}$
+
+# $\color{Red}{\textsf{femboys}}$
+thunder
+otane
+vented
+lof
+
